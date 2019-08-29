@@ -1,0 +1,41 @@
+public class CountingSort {
+
+	
+	public CountingSort() {}
+	
+	public int [] sort(int [] a) {
+		
+		int [] c = new int [a.length]; 
+		int [] b = new int [a.length];
+		
+		for (int i= 0 ; i<a.length; i++) {
+			
+			c[i] = 0;
+			
+		}
+		
+		for(int j = 0 ; j<a.length; j++ ) {
+			
+			c[a[j]] = c[a[j]]+1 ; 
+			
+		}
+		
+		for(int g = 1 ; g<a.length; g++) {
+			
+			c[g] = c[g]+ c[g-1];
+			
+		}
+		
+		for(int i= a.length-1; i>=0 ; i--) {
+			
+			b[c[a[i]]] = a[i];
+			c[a[i]] --;
+			
+		}
+		
+		
+		
+		return b;
+		
+	}
+}
